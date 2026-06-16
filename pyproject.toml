@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[tool.setuptools.packages.find]
+# Only package the two runtime packages; exclude training scripts at root level
+include  = ["noc_inference*", "con_noccai_v7*"]
+exclude  = ["tests*", "training*"]
+
+[project]
+name = "noc_inference"
+version = "0.7.0"
+requires-python = ">=3.9"
+description = "NOC 2021 hierarchical job-description classifier — hierarchy_v7 (DistilBERT-base-uncased, 515 L5 classes)"
+readme = "README.md"
+authors = [
+    { name = "Ryan Spencer", email = "ryan.r.spencer@hrsdc-rhdcc.gc.ca" }
+]
+dependencies = [
+    "torch>=2.3.0",
+    "transformers>=4.40.0",
+    "pandas>=1.5.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.0.0",
+    "tqdm>=4.64.0",
+]
